@@ -59,3 +59,155 @@ Migrating to AddImageToPosts (20190611200017)
   ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+Started GET "/" for ::1 at 2019-06-11 21:06:01 +0100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/martynjones/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/martynjones/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (4.2ms)
+Completed 200 OK in 67ms (Views: 56.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-06-11 21:07:45 +0100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (11.5ms)
+  [1m[36mPost Load (17.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (39.9ms)
+  Rendered shared/_nav.html.erb (29.4ms)
+Completed 500 Internal Server Error in 3684ms (ActiveRecord: 24.0ms)
+
+
+  
+ActionView::Template::Error (The asset "tree_logo_sm.png" is not present in the asset pipeline.):
+    1: 
+    2: <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+    3:     <%= image_tag 'tree_logo_sm.png', class: "img-fluid"%>
+    4:     <h4 class="navbar-brand text-center brand" id="gfl_main_title">Greener Family Living </h4>
+    5:     
+    6:     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  
+app/views/shared/_nav.html.erb:3:in `_app_views_shared__nav_html_erb___2216532326656856962_70287575941220'
+app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__882570266747668628_70287578865380'
+Started GET "/" for ::1 at 2019-06-11 21:08:51 +0100
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (11.8ms)
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (22.7ms)
+  Rendered shared/_nav.html.erb (2.5ms)
+Completed 200 OK in 715ms (Views: 677.8ms | ActiveRecord: 8.3ms)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mCategory Create (1.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sustainable Home"], ["created_at", "2019-06-11 20:10:13.124308"], ["updated_at", "2019-06-11 20:10:13.124308"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Electric Vehicles"], ["created_at", "2019-06-11 20:10:13.129217"], ["updated_at", "2019-06-11 20:10:13.129217"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Veggie Garden"], ["created_at", "2019-06-11 20:10:13.131900"], ["updated_at", "2019-06-11 20:10:13.131900"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Environment"], ["created_at", "2019-06-11 20:10:13.134381"], ["updated_at", "2019-06-11 20:10:13.134381"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Recycle & Reuse"], ["created_at", "2019-06-11 20:10:13.136856"], ["updated_at", "2019-06-11 20:10:13.136856"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mPost Create (1.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Georganics Spearmint Toothpaste"], ["content", "This come in a lovely little glass pot with a metal lid. In terms of colour and consistency it appears to look similar to clay or putty. The little wooden spatula provided is perfect for scooping out a pea sized amount of toothpaste to pop onto your toothbrush.  \n    Of course, the first time you use this toothpaste you will be immediately struck by the fact that, yes, it does feels a bit like clay clagging in your mouth. For those of us who have been used to years of silky and slightly foaming toothpaste, initially this is a little bit of a shock to the sensitive nerve ending of the tongue and mouth, however I implore you to persist. You do adjust and once you add  some water and give your teeth a good scrub you may find yourself pleasantly surprised that your teeth do actually feel and look clean.   \n    One little pot has lasted about the same amount of time as a large tube to toothpaste for two of us. From a financial point of view it is therefore more expensive. From a trying to live a plastic free, chemical free, sustainable living, supporting small local and national businesses point of view we have been very happy.  \n    You can recycle the pot or re use it.  \n    Personally, I am not a fan of the spearmint so I have ordered the peppermint option to try next. There are also other flavours to try as well – so watch this space."], ["category_id", 1], ["created_at", "2019-06-11 20:10:13.220520"], ["updated_at", "2019-06-11 20:10:13.220520"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Kutis Deodorant"], ["content", "I have been using this deodorant stick for a couple of months after it was recommended to me by a friend.So far so good. It has a subtle smell but it seems to really work.  \n    It is really easy to use as it is similar to a roll on deodorant.  \n    Things worth noting are that it is not an anti perspirant so it doesn’t stop you sweating it just helps you smell nice. You will also need to wash thoroughly every day. In the warmer weather the deodorant stick can become quite soft so store it away from a heat source or direct sunlight."], ["category_id", 1], ["created_at", "2019-06-11 20:10:13.226275"], ["updated_at", "2019-06-11 20:10:13.226275"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Save Some Green Tooth Tabs"], ["content", "These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple."], ["category_id", 1], ["created_at", "2019-06-11 20:10:13.233166"], ["updated_at", "2019-06-11 20:10:13.233166"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+Started GET "/" for ::1 at 2019-06-11 21:10:28 +0100
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (25.1ms)
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (55.1ms)
+  Rendered shared/_nav.html.erb (3.0ms)
+Completed 200 OK in 481ms (Views: 439.6ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/pages/about" for ::1 at 2019-06-11 21:10:31 +0100
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"about"}
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (1.8ms)
+  Rendered shared/_nav.html.erb (2.6ms)
+Completed 200 OK in 72ms (Views: 71.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2019-06-11 21:10:35 +0100
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"about"}
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (2.5ms)
+  Rendered shared/_nav.html.erb (2.9ms)
+Completed 200 OK in 113ms (Views: 111.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-11 21:10:37 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (3.0ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (9.6ms)
+  Rendered shared/_nav.html.erb (1.8ms)
+Completed 200 OK in 94ms (Views: 88.2ms | ActiveRecord: 1.2ms)
+
+
