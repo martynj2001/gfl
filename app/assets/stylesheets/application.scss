@@ -1,0 +1,21 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+.raleway {
+    font-family: 'Raleway', sans-serif;
+}
+
+.brand {
+    font-family: 'Special Elite', cursive;
+}
+#gfl_main_title {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+}
+
+.box {
+    background-color: #42f489;
+    border: 2px solid green;
+    border-radius: 25px;
+}
