@@ -4,7 +4,15 @@
 </p>
 
 <p>
-  <%= image_tag(@post.image.url, alt: "Image") if @post.image? %>
+  <%= image_tag(@post.image.thumb.url, alt: "Image") if @post.image? %>
+</p>
+
+<p>
+  <%= image_tag(@post.image.cover_full.url, alt: "Image") if @post.image? %>
+</p>
+
+<p>
+  <%= image_tag(@post.image.cover_small.url, alt: "Image") if @post.image? %>
 </p>
 
 <p>
