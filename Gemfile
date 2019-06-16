@@ -43,6 +43,7 @@ gem 'jquery-rails'
 gem 'high_voltage', '~> 3.1'
 gem 'carrierwave'
 gem 'devise'
+gem 'min-magick'
 
 # End Custom gflBlog Gems
 
