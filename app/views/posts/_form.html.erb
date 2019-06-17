@@ -1,13 +1,9 @@
 <%= form_with(model: post, local: true, :html => {multipart: true}) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
       <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <p class="alert alert-danger" style="list-style-type: none;"><%= message %></p>
       <% end %>
-      </ul>
     </div>
   <% end %>
 
@@ -28,7 +24,18 @@
 
 
   <div class='field'>
+    <%= image_tag(@post.image.thumb.url) if @post.image? %>
     <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+    <p>
+    <label>
+      <%= form.check_box :remove_image %>
+      Remove Image
+    </label>
+  </p>
+
+    <%= form.file_field :attachments, multiple: true %>
+    
   </div>
 
   <div class="actions">

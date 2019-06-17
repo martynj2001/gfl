@@ -44,6 +44,7 @@ gem 'high_voltage', '~> 3.1'
 gem 'carrierwave'
 gem 'devise'
 gem 'mini_magick'
+gem 'file_validators'
 
 # End Custom gflBlog Gems
 

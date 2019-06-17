@@ -2650,3 +2650,1661 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 19:16:43 +0100
+Started GET "/posts" for ::1 at 2019-06-17 19:16:43 +0100
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/index.html.erb within layouts/application
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (89.3ms)
+  Rendered posts/edit.html.erb within layouts/application (99.7ms)
+  [1m[36mCategory Load (25.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (1696.5ms)
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (46.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (1739.9ms)
+  Rendered shared/_nav.html.erb (130.4ms)
+Completed 200 OK in 1887ms (Views: 1619.3ms | ActiveRecord: 123.1ms)
+
+
+  Rendered shared/_nav.html.erb (2.1ms)
+Completed 200 OK in 1950ms (Views: 1825.2ms | ActiveRecord: 42.7ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 19:16:56 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.4ms)
+  Rendered posts/edit.html.erb within layouts/application (6.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.9ms)
+Completed 200 OK in 97ms (Views: 87.6ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 19:17:08 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BNjdGk1hSkf0WJXeI46ueISykULy5m9K/b2Lkx58cgWyQPXPuR4MVpYpNH4ck0corbBBIjLwMvGVSjXrnbIcQg==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fe80a628118 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-90681-mghizv.jpg>, @original_filename="tooth.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"tooth.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/posts_controller.rb:50
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.2ms)
+  Rendered posts/edit.html.erb within layouts/application (7.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.6ms)
+Completed 200 OK in 2231ms (Views: 89.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:17:27 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (2.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (28.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.1ms)
+Completed 200 OK in 130ms (Views: 122.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/uploads/post/image/3/cover_full_IMG_4239.JPG" for ::1 at 2019-06-17 19:17:27 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/post/image/3/cover_full_IMG_4239.JPG"):
+  
+Started GET "/uploads/post/image/3/cover_small_IMG_4239.JPG" for ::1 at 2019-06-17 19:17:27 +0100
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/post/image/3/cover_small_IMG_4239.JPG"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 19:19:19 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/edit.html.erb within layouts/application (6.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.8ms)
+Completed 200 OK in 107ms (Views: 100.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/uploads/post/image/3/cover_full_IMG_4239.JPG" for ::1 at 2019-06-17 19:19:19 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/post/image/3/cover_full_IMG_4239.JPG"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/uploads/post/image/3/cover_small_IMG_4239.JPG" for ::1 at 2019-06-17 19:19:19 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/post/image/3/cover_small_IMG_4239.JPG"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PATCH "/posts/3" for ::1 at 2019-06-17 19:19:34 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cCz1AlcnST8GVPvZ229WjRUfAQdiBEPxD4ch2T11wWvGtN3Xo1gPLmQlWnnkcr/dPB3RZ6ISHkpncJ+hvruvLA==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fe80883a610 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-90681-kn8pwn.jpg>, @original_filename="tooth.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"tooth.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.7ms)[0m  [1m[33mUPDATE "posts" SET "image" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["image", "tooth.jpg"], ["updated_at", "2019-06-17 18:19:35.273152"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (45.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 429ms (ActiveRecord: 47.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:19:35 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (7.2ms)
+Completed 200 OK in 128ms (Views: 122.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:23:39 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (3.9ms)
+Completed 200 OK in 130ms (Views: 125.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:23:43 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (3.8ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (31.1ms)
+  Rendered shared/_nav.html.erb (2.5ms)
+Completed 200 OK in 112ms (Views: 105.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2019-06-17 19:23:46 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.6ms)
+  Rendered posts/edit.html.erb within layouts/application (7.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.5ms)
+Completed 200 OK in 99ms (Views: 91.7ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/posts/2" for ::1 at 2019-06-17 19:24:03 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1tMtRbv3miNt52yAVMlIlyhdGyojX+j0zy9+tEIS+Qh0R6zy4zISKag5PRI/eRxyL9myVW/SywlNQ633mHPY1A==", "post"=>{"title"=>"Kutis Deodorant", "content"=>"I have been using this deodorant stick for a couple of months after it was recommended to me by a friend.So far so good. It has a subtle smell but it seems to really work.  \r\n    It is really easy to use as it is similar to a roll on deodorant.  \r\n    Things worth noting are that it is not an anti perspirant so it doesn’t stop you sweating it just helps you smell nice. You will also need to wash thoroughly every day. In the warmer weather the deodorant stick can become quite soft so store it away from a heat source or direct sunlight.", "category_id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fe80b088b80 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-90681-y30zve.HEIC>, @original_filename="IMG_2118.HEIC", @content_type="image/heic", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"IMG_2118.HEIC\"\r\nContent-Type: image/heic\r\n">}, "commit"=>"Update Post", "id"=>"2"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/posts_controller.rb:50
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.1ms)
+  Rendered posts/edit.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.3ms)
+Completed 200 OK in 107ms (Views: 91.1ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/posts/2" for ::1 at 2019-06-17 19:25:30 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1tMtRbv3miNt52yAVMlIlyhdGyojX+j0zy9+tEIS+Qh0R6zy4zISKag5PRI/eRxyL9myVW/SywlNQ633mHPY1A==", "post"=>{"title"=>"Kutis Deodorant", "content"=>"I have been using this deodorant stick for a couple of months after it was recommended to me by a friend.So far so good. It has a subtle smell but it seems to really work.  \r\n    It is really easy to use as it is similar to a roll on deodorant.  \r\n    Things worth noting are that it is not an anti perspirant so it doesn’t stop you sweating it just helps you smell nice. You will also need to wash thoroughly every day. In the warmer weather the deodorant stick can become quite soft so store it away from a heat source or direct sunlight.", "category_id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fe805365f98 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-90681-14b0nl7.HEIC>, @original_filename="IMG_2118.HEIC", @content_type="image/heic", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"IMG_2118.HEIC\"\r\nContent-Type: image/heic\r\n">}, "commit"=>"Update Post", "id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/posts_controller.rb:50
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/edit.html.erb within layouts/application (6.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.0ms)
+Completed 200 OK in 113ms (Views: 96.3ms | ActiveRecord: 1.9ms)
+
+
+Started PATCH "/posts/2" for ::1 at 2019-06-17 19:26:11 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1tMtRbv3miNt52yAVMlIlyhdGyojX+j0zy9+tEIS+Qh0R6zy4zISKag5PRI/eRxyL9myVW/SywlNQ633mHPY1A==", "post"=>{"title"=>"Kutis Deodorant", "content"=>"I have been using this deodorant stick for a couple of months after it was recommended to me by a friend.So far so good. It has a subtle smell but it seems to really work.  \r\n    It is really easy to use as it is similar to a roll on deodorant.  \r\n    Things worth noting are that it is not an anti perspirant so it doesn’t stop you sweating it just helps you smell nice. You will also need to wash thoroughly every day. In the warmer weather the deodorant stick can become quite soft so store it away from a heat source or direct sunlight.", "category_id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fe80b38f9a0 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-90681-kpmg1n.HEIC>, @original_filename="IMG_2118.HEIC", @content_type="image/heic", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"IMG_2118.HEIC\"\r\nContent-Type: image/heic\r\n">}, "commit"=>"Update Post", "id"=>"2"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/posts_controller.rb:50
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.2ms)
+  Rendered posts/edit.html.erb within layouts/application (9.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.4ms)
+Completed 200 OK in 109ms (Views: 94.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:27:04 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (3.3ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (22.5ms)
+  Rendered shared/_nav.html.erb (12.7ms)
+Completed 200 OK in 114ms (Views: 109.4ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/posts" for ::1 at 2019-06-17 19:28:05 +0100
+  
+ActionController::RoutingError (No route matches [PATCH] "/posts"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/posts" for ::1 at 2019-06-17 19:28:33 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (67.2ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (131.4ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+Completed 200 OK in 242ms (Views: 187.3ms | ActiveRecord: 20.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-06-17 19:28:37 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GMuf6YZ5ez47TMnTIdgemZssf+TL9KElLwPxVgxt5NxWKx1tKbufMRbGviWar2iLN/cg63+zo8gClm1wm+AR1Q=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/devise-4.6.2/lib/devise/models/rememberable.rb:62
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/devise-4.6.2/lib/devise/models/rememberable.rb:62
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2019-06-17 19:28:37 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (3.0ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (10.6ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+Completed 200 OK in 91ms (Views: 87.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-06-17 19:30:37 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/posts/index.html.erb:3
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/posts/index.html.erb:3
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/posts/index.html.erb:3
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/posts/index.html.erb:3
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/posts/index.html.erb:3
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/posts/index.html.erb:3
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/posts/index.html.erb:3
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/posts/index.html.erb:3
+  Rendered shared/_category_src.html.erb (475.4ms)
+  Rendered posts/index.html.erb within layouts/application (478.7ms)
+Completed 500 Internal Server Error in 514ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `category' for #<#<Class:0x00007fe804dae938>:0x00007fe80a313b08>):
+    10:             </li>
+    11:             <% end %>
+    12:             <li>
+    13:                 <%= link_to category.name, posts_path, class: "nav-link" %>
+    14:             </li>
+    15: 
+    16:         </ul>
+  
+app/views/shared/_category_src.html.erb:13:in `_app_views_shared__category_src_html_erb__1789211779672688455_70317279792780'
+app/views/posts/index.html.erb:3:in `_app_views_posts_index_html_erb__636069854353386428_70317290079000'
+Started GET "/" for ::1 at 2019-06-17 19:31:22 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:7
+  Rendered shared/_category_src.html.erb (3.9ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (10.1ms)
+  Rendered shared/_nav.html.erb (4.3ms)
+Completed 200 OK in 246ms (Views: 241.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2019-06-17 19:31:46 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (2.9ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (10.2ms)
+  Rendered shared/_nav.html.erb (3.5ms)
+Completed 200 OK in 98ms (Views: 93.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:31:49 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (2.7ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (7.4ms)
+  Rendered shared/_nav.html.erb (3.2ms)
+Completed 200 OK in 86ms (Views: 82.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts?category=Sustainable+Home" for ::1 at 2019-06-17 19:31:51 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"category"=>"Sustainable Home"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Sustainable Home"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.2ms)
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = $1 ORDER BY created_at DESC[0m  [["category_id", 1]]
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (9.7ms)
+  Rendered shared/_nav.html.erb (3.4ms)
+Completed 200 OK in 103ms (Views: 93.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts?category=Electric+Vehicles" for ::1 at 2019-06-17 19:31:52 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"category"=>"Electric Vehicles"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Electric Vehicles"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (2.4ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = $1 ORDER BY created_at DESC[0m  [["category_id", 2]]
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (7.4ms)
+  Rendered shared/_nav.html.erb (1.8ms)
+Completed 200 OK in 103ms (Views: 97.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:31:53 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (7.3ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (16.2ms)
+  Rendered shared/_nav.html.erb (1.9ms)
+Completed 200 OK in 98ms (Views: 91.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:36:20 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (35.4ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (55.8ms)
+  Rendered shared/_nav.html.erb (2.9ms)
+Completed 200 OK in 164ms (Views: 116.3ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-06-17 19:36:24 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (67.8ms)
+  Rendered shared/_nav.html.erb (1.5ms)
+Completed 200 OK in 220ms (Views: 164.9ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-06-17 19:36:27 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ogSQc9k1oHVcqaQcSwbsF92XuKXLS0povF2R7r8d1p1nUzPHAjUbjmwoABBzEAVXSnNu34TTxlLIs/YZP6Jt+g==", "user"=>{"email"=>"martynj2010@icloud.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "martynj2010@icloud.com"], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:22
+Redirected to http://localhost:3000/
+Completed 302 Found in 255ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-06-17 19:36:28 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (2.5ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (13.3ms)
+  Rendered shared/_nav.html.erb (3.1ms)
+Completed 200 OK in 104ms (Views: 99.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:36:31 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.4ms)
+Completed 200 OK in 79ms (Views: 73.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:36:34 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.9ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (14.0ms)
+  Rendered shared/_nav.html.erb (2.9ms)
+Completed 200 OK in 97ms (Views: 90.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 19:36:36 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (429.2ms)
+  Rendered posts/edit.html.erb within layouts/application (431.9ms)
+Completed 500 Internal Server Error in 459ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007fe80b1815c8>:0x00007fe804ebf020>):
+    26:   <div class='field'>
+    27:     <%= image_tag(@post.image.thumb.url) if @post.image? %>
+    28:     <%= form.file_field :image %>
+    29:     <%= f.hidden_field :image_cache %>
+    30:   </div>
+    31: 
+    32:   <div class="actions">
+  
+app/views/posts/_form.html.erb:29:in `block in _app_views_posts__form_html_erb___1331582366233797763_70317245757540'
+app/views/posts/_form.html.erb:1:in `_app_views_posts__form_html_erb___1331582366233797763_70317245757540'
+app/views/posts/edit.html.erb:3:in `_app_views_posts_edit_html_erb___1794895283995115304_70317245867280'
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 19:36:52 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (45.3ms)
+  Rendered posts/edit.html.erb within layouts/application (49.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.3ms)
+Completed 200 OK in 140ms (Views: 134.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:36:59 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (4.7ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (13.3ms)
+  Rendered shared/_nav.html.erb (3.5ms)
+Completed 200 OK in 120ms (Views: 112.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/new" for ::1 at 2019-06-17 19:37:06 +0100
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.1ms)
+  Rendered posts/new.html.erb within layouts/application (10.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.5ms)
+Completed 200 OK in 131ms (Views: 111.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for ::1 at 2019-06-17 19:49:26 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wWeCBzh8FL+tHk4fzQEU2HEeieOIJVlOm5btOZ/TYcUyn+tTfnATyBkX+G5nesJpYkyobdyx+J5Mc1I0wcjAmg==", "post"=>{"title"=>"Finding the Ultimate Sustainable Shave", "content"=>"On our quest to reduce plastic waste and build a more suastaibable bathroom – my shaving habits came under scrutiny. The increasing cost and disposable culture of our households is apitamised in my shaving habits; shaving gel, foam, disposable razors and replaceable (non recycleable) blade cartridges all get thrown out.  It doesn’t take much however to find more acceptable sustainable alternatives, in fact (like many things) it’s a glance backwards to previous generations to find the answers. Shaving soap, safety razors, cut-throat razors (for the more brave hearted) are all on the menu. The usual google search and Amazon trawl will deliver you a wide range of options – we have tried a few and these are my thoughts.\r\n\r\nFirst up and the simplest change is to put aside your shaving gel and foam and get a good shaving soap and brush. In fact, I lost my shaving brush one work trip about a month ago and have been surviving perfectly well without it! There is a vast range of shaving soaps out there, I have been through a few but have only focused here on thoughs that come from a sustainable range (mostly vegan in there make up) and don’t come shrink wrapped in single use plastics and packaging. The best have been ……… \r\n\r\nSwapping my Gillette Turbo v3, cartridge razor was by far the easiest thing I did. My misconstrued worries about turning up to work looking like I had lost a knife fight were way off of the mark. In fact swapping to a safety razor has been a shaving delight and, it has come with zero addition hassle! I considered three safety razors after a trawl of the internet, the simplistic Mutiney razor, the Bluebeards Revenge Cutless and the BamBau safety razor came up as my top three. In the end there were two things that helped me decide. Both the Cutless and Mutiny razor have short handles, clearly personal choice, but I wanted something more substantial. Price wise, the Mutiney razor and bambau are on a par coming in between £10 - £15, the Cutless is pricy (£34.99!). Both Bawbau and Mutiny have sustainably credentials which extends to there packaging – sadly Bluebeards revenge still seem stuck in the plastic age! In the end the BamBau stole it for me and so far its been magic.\r\n\r\nBlades – This can be tricky. In short you quickly undo your plastic free intentions by buying any old safety razor blades. Most, sadly, come in neat plastic cartridge type packets and single use plastic cellophane. They are however cheap, readily available and easy to buy in bulk. I have decided to go with ‘Shark’ as they are 100% packaged in recyclable and contain zero plastic. They are also reasonably priced at £12 for 100 and readily available from Mutiny Shaving. Disposing of the blades is genius……. Simply cut a small opening in a tin of your favourite soup, eat the contents for lunch, clean the empty tin and post your used blade through the slot, they cant’t escape (if your careful in the way you opening the tin before lunch!) so your bathroom remains child friendly– when its full (which will take years) simply throw it in the recycling. Mutiny shaving offer a £4 version of this but……….\r\n\r\nOverall, I could tell you all that making the switch to safety razors and shaving soap is all about a close shave -  for me the difference was neglible. The switch is about reducing your plastic footprint, making your bathroom more sustainable and,  its about saving you some money (It doesn’t take a rocket scientist to work out that £12 for 100 safety blade is better value than £12 for 8 Gillette Cartridges.)\r\n", "category_id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fe80b30f818 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-90681-4i46z6.jpg>, @original_filename="IMG_4591.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"IMG_4591.jpg\"\r\nContent-Type: image/jpeg\r\n">, "image_cache"=>""}, "commit"=>"Create Post"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:36
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36
+  [1m[36mPost Create (162.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "category_id", "created_at", "updated_at", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Finding the Ultimate Sustainable Shave"], ["content", "On our quest to reduce plastic waste and build a more suastaibable bathroom – my shaving habits came under scrutiny. The increasing cost and disposable culture of our households is apitamised in my shaving habits; shaving gel, foam, disposable razors and replaceable (non recycleable) blade cartridges all get thrown out.  It doesn’t take much however to find more acceptable sustainable alternatives, in fact (like many things) it’s a glance backwards to previous generations to find the answers. Shaving soap, safety razors, cut-throat razors (for the more brave hearted) are all on the menu. The usual google search and Amazon trawl will deliver you a wide range of options – we have tried a few and these are my thoughts.\r\n\r\nFirst up and the simplest change is to put aside your shaving gel and foam and get a good shaving soap and brush. In fact, I lost my shaving brush one work trip about a month ago and have been surviving perfectly well without it! There is a vast range of shaving soaps out there, I have been through a few but have only focused here on thoughs that come from a sustainable range (mostly vegan in there make up) and don’t come shrink wrapped in single use plastics and packaging. The best have been ……… \r\n\r\nSwapping my Gillette Turbo v3, cartridge razor was by far the easiest thing I did. My misconstrued worries about turning up to work looking like I had lost a knife fight were way off of the mark. In fact swapping to a safety razor has been a shaving delight and, it has come with zero addition hassle! I considered three safety razors after a trawl of the internet, the simplistic Mutiney razor, the Bluebeards Revenge Cutless and the BamBau safety razor came up as my top three. In the end there were two things that helped me decide. Both the Cutless and Mutiny razor have short handles, clearly personal choice, but I wanted something more substantial. Price wise, the Mutiney razor and bambau are on a par coming in between £10 - £15, the Cutless is pricy (£34.99!). Both Bawbau and Mutiny have sustainably credentials which extends to there packaging – sadly Bluebeards revenge still seem stuck in the plastic age! In the end the BamBau stole it for me and so far its been magic.\r\n\r\nBlades – This can be tricky. In short you quickly undo your plastic free intentions by buying any old safety razor blades. Most, sadly, come in neat plastic cartridge type packets and single use plastic cellophane. They are however cheap, readily available and easy to buy in bulk. I have decided to go with ‘Shark’ as they are 100% packaged in recyclable and contain zero plastic. They are also reasonably priced at £12 for 100 and readily available from Mutiny Shaving. Disposing of the blades is genius……. Simply cut a small opening in a tin of your favourite soup, eat the contents for lunch, clean the empty tin and post your used blade through the slot, they cant’t escape (if your careful in the way you opening the tin before lunch!) so your bathroom remains child friendly– when its full (which will take years) simply throw it in the recycling. Mutiny shaving offer a £4 version of this but……….\r\n\r\nOverall, I could tell you all that making the switch to safety razors and shaving soap is all about a close shave -  for me the difference was neglible. The switch is about reducing your plastic footprint, making your bathroom more sustainable and,  its about saving you some money (It doesn’t take a rocket scientist to work out that £12 for 100 safety blade is better value than £12 for 8 Gillette Cartridges.)\r\n"], ["category_id", 1], ["created_at", "2019-06-17 18:49:28.996143"], ["updated_at", "2019-06-17 18:49:28.996143"], ["image", "IMG_4591.jpg"]]
+  ↳ app/controllers/posts_controller.rb:36
+  [1m[35m (71.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:36
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 1991ms (ActiveRecord: 235.4ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-06-17 19:49:29 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (26.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.5ms)
+Completed 200 OK in 842ms (Views: 820.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:49:45 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (4.2ms)
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (28.0ms)
+  Rendered shared/_nav.html.erb (3.0ms)
+Completed 200 OK in 132ms (Views: 110.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:51:26 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.2ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (11.8ms)
+  Rendered shared/_nav.html.erb (3.6ms)
+Completed 200 OK in 97ms (Views: 92.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/4/edit" for ::1 at 2019-06-17 19:51:31 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.5ms)
+  Rendered posts/edit.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.1ms)
+Completed 200 OK in 135ms (Views: 104.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:51:34 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (6.2ms)
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (31.3ms)
+  Rendered shared/_nav.html.erb (3.1ms)
+Completed 200 OK in 121ms (Views: 114.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 19:51:38 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.6ms)
+  Rendered posts/edit.html.erb within layouts/application (6.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.1ms)
+Completed 200 OK in 93ms (Views: 87.3ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 19:51:43 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HRdjiLzeLqGwgtyGZh0GJOY2v7wVb/49BfMaSLIe7ngW3bD1hM6sVbsUCWLtGDtaDuPyPtKKXk8SjtPuUeldNQ==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image_cache"=>"", "remove_image"=>"1"}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+Unpermitted parameter: :remove_image
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 11ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:51:43 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.2ms)
+Completed 200 OK in 85ms (Views: 78.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:51:49 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.1ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (11.2ms)
+  Rendered shared/_nav.html.erb (2.8ms)
+Completed 200 OK in 96ms (Views: 89.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/2" for ::1 at 2019-06-17 19:51:53 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.0ms)
+Completed 200 OK in 86ms (Views: 78.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:51:54 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (8.4ms)
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (27.0ms)
+  Rendered shared/_nav.html.erb (2.2ms)
+Completed 200 OK in 113ms (Views: 106.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2019-06-17 19:51:57 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.0ms)
+Completed 200 OK in 91ms (Views: 85.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:51:58 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (16.1ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (28.8ms)
+  Rendered shared/_nav.html.erb (2.4ms)
+Completed 200 OK in 114ms (Views: 106.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 19:52:02 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.0ms)
+  Rendered posts/edit.html.erb within layouts/application (8.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (3.7ms)
+Completed 200 OK in 96ms (Views: 89.2ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 19:52:09 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d4PS7QWtAkrt447wcBWDlyj4w8yk+TlIWO3v25VfFRR8SQGQPb2AvuZ1WxT7EL7pwC2OTmMcmTpPkCZ9dqimWQ==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image_cache"=>"", "remove_image"=>"1"}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+Unpermitted parameter: :remove_image
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 9ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:52:09 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (3.7ms)
+Completed 200 OK in 77ms (Views: 72.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:52:41 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.5ms)
+Completed 200 OK in 86ms (Views: 81.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 19:53:49 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.0ms)
+  Rendered posts/edit.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (25.7ms)
+Completed 200 OK in 166ms (Views: 97.6ms | ActiveRecord: 22.5ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 19:53:51 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"orHCoiTmFb8kt2qGmJGcWYTa7wAfftWPG61dSGrCgh+pexHfHPaXSy8hv2ITlKEnbA+igtibdf0M0JTuiTUxUg==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image_cache"=>"", "remove_image"=>"1"}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.8ms)[0m  [1m[33mUPDATE "posts" SET "image" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["image", nil], ["updated_at", "2019-06-17 18:53:52.070747"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 75ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:53:52 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.6ms)
+Completed 200 OK in 80ms (Views: 75.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:53:54 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.2ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (12.0ms)
+  Rendered shared/_nav.html.erb (1.9ms)
+Completed 200 OK in 102ms (Views: 98.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 19:54:04 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.1ms)
+  Rendered posts/edit.html.erb within layouts/application (8.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.8ms)
+Completed 200 OK in 100ms (Views: 93.3ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 19:54:19 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YyybFu5dv8vcn7IOLtqRT3+8km1tOE69ZmKvTdy7OuBo5khr1k09P9cJZ+ql36wxl2nf76rd7s9xH2brP0yJrQ==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fe806227568 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-90681-tcytbu.jpg>, @original_filename="tooth.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"tooth.jpg\"\r\nContent-Type: image/jpeg\r\n">, "image_cache"=>"", "remove_image"=>"0"}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "image" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["image", "tooth.jpg"], ["updated_at", "2019-06-17 18:54:20.292021"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 433ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:54:20 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.0ms)
+Completed 200 OK in 102ms (Views: 96.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:54:34 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (4.3ms)
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (13.8ms)
+  Rendered shared/_nav.html.erb (2.4ms)
+Completed 200 OK in 107ms (Views: 101.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-06-17 19:54:37 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.4ms)
+Completed 200 OK in 108ms (Views: 101.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 19:54:51 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (5.0ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (18.0ms)
+  Rendered shared/_nav.html.erb (1.9ms)
+Completed 200 OK in 120ms (Views: 113.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 19:54:54 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (3.8ms)
+Completed 200 OK in 95ms (Views: 88.8ms | ActiveRecord: 0.8ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2779171729963002045)[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddAttachmentsToPosts (20190617185654)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "posts" ADD "attachments" json[0m
+  ↳ db/migrate/20190617185654_add_attachments_to_posts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190617185654"]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (34.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2779171729963002045)[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+Started GET "/posts/3" for ::1 at 2019-06-17 20:05:16 +0100
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (10.9ms)
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 9.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `thumb' for "tooth.jpg":String):
+    4: </p>
+    5: 
+    6: <p>
+    7:   <%= image_tag(@post.image.thumb.url, alt: "Image") if @post.image? %>
+    8: </p>
+    9: 
+   10: <p>
+  
+app/views/posts/show.html.erb:7:in `_app_views_posts_show_html_erb__1171701574905102105_70294743532440'
+Started GET "/posts/3" for ::1 at 2019-06-17 20:05:50 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `thumb' for "tooth.jpg":String):
+    4: </p>
+    5: 
+    6: <p>
+    7:   <%= image_tag(@post.image.thumb.url, alt: "Image") if @post.image? %>
+    8: </p>
+    9: 
+   10: <p>
+  
+app/views/posts/show.html.erb:7:in `_app_views_posts_show_html_erb__1171701574905102105_70294779066720'
+Started GET "/posts/3" for ::1 at 2019-06-17 20:06:50 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 3.1ms)
+
+
+  
+NoMethodError (undefined method `uploader' for #<Class:0x00007fdd8ee2ed20>
+Did you mean?  uploaders):
+  
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:73:in `set_post'
+Started GET "/posts/3" for ::1 at 2019-06-17 20:07:10 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (36.1ms)
+Completed 200 OK in 617ms (Views: 575.9ms | ActiveRecord: 18.2ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 20:07:17 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (89.8ms)
+  Rendered posts/edit.html.erb within layouts/application (93.2ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (8.1ms)
+Completed 200 OK in 181ms (Views: 173.3ms | ActiveRecord: 2.4ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 20:07:52 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FzlF3Q21JZK12G/DJm7j+fanZO8EGT0Lfqh4VsuzalQc85agNaWnZr5Ouieta96HHnIpbcP8nXlp1bHwKETZGQ==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image_cache"=>"", "remove_image"=>"0", "attachments"=>#<ActionDispatch::Http::UploadedFile:0x00007fdd8ffb0e90 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-91319-1njb1ql.jpg>, @original_filename="IMG_4591.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments]\"; filename=\"IMG_4591.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+Unpermitted parameter: :attachments
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.7ms)[0m  [1m[33mUPDATE "posts" SET "image" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["image", "tooth.jpg"], ["updated_at", "2019-06-17 19:07:52.656401"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (43.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 202ms (ActiveRecord: 58.6ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 20:07:52 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.7ms)
+Completed 200 OK in 211ms (Views: 186.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 20:12:52 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.4ms)
+Completed 200 OK in 115ms (Views: 109.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 20:12:55 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.7ms)
+  Rendered posts/edit.html.erb within layouts/application (6.9ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.0ms)
+Completed 200 OK in 113ms (Views: 92.7ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 20:13:04 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0gmYIL0X9TVGOQLSGLXyd1bHr0gYiYrNStVfMIDFqdTZw0tdhQd3wU2v1zaTsM8JvhLiyt9sKr9dqJaWYzIamQ==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image_cache"=>"", "remove_image"=>"0", "attachments"=>[#<ActionDispatch::Http::UploadedFile:0x00007fdd8ad12a58 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-91319-6nvqpt.jpg>, @original_filename="IMG_4591.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"IMG_4591.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.7ms)[0m  [1m[33mUPDATE "posts" SET "image" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["image", "tooth.jpg"], ["attachments", "[\"IMG_4591.jpg\"]"], ["updated_at", "2019-06-17 19:13:05.984987"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 1248ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 20:13:06 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.4ms)
+Completed 200 OK in 116ms (Views: 110.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 20:13:16 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.9ms)
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (21.1ms)
+  Rendered shared/_nav.html.erb (3.9ms)
+Completed 200 OK in 119ms (Views: 101.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 20:13:21 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.1ms)
+  Rendered posts/edit.html.erb within layouts/application (8.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.2ms)
+Completed 200 OK in 97ms (Views: 90.4ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 20:13:33 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wKk6wrOdwSp9INaN0U/mc7FbTiL/I53ZJhNMRLSjKnbLY+m/i41D3na2A2laStsNWY4DoDjGPasxboXiV1SZOw==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image_cache"=>"", "remove_image"=>"1", "attachments"=>[#<ActionDispatch::Http::UploadedFile:0x00007fdd908816c8 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-91319-12qnwy3.jpg>, @original_filename="tooth.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"tooth.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "image" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["image", nil], ["attachments", "[\"tooth.jpg\"]"], ["updated_at", "2019-06-17 19:13:33.862681"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 274ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 20:13:33 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.1ms)
+Completed 200 OK in 91ms (Views: 85.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 20:14:36 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (7.7ms)
+Completed 200 OK in 136ms (Views: 131.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 20:14:39 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.6ms)
+  Rendered posts/edit.html.erb within layouts/application (11.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.7ms)
+Completed 200 OK in 103ms (Views: 96.0ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 20:14:50 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OMGtR4Dl47fgRQv+2c/9VMSC6ZgvwgK67furvgacxREzC346uPVhQ+vT3hpSysAqLFekGugnosj6hmIY5Wt2XA==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image_cache"=>"", "remove_image"=>"0", "attachments"=>[#<ActionDispatch::Http::UploadedFile:0x00007fdd90a8a348 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-91319-tzr3cy.JPG>, @original_filename="IMG_4239.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"IMG_4239.JPG\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fdd90a8a2f8 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-91319-1lqc8lp.jpg>, @original_filename="IMG_4591.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"IMG_4591.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.5ms)[0m  [1m[33mUPDATE "posts" SET "image" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["image", nil], ["attachments", "[\"IMG_4239.JPG\",\"IMG_4591.jpg\"]"], ["updated_at", "2019-06-17 19:14:52.312753"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 1992ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 20:14:52 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.3ms)
+Completed 200 OK in 103ms (Views: 97.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 20:14:56 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (4.0ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (13.2ms)
+  Rendered shared/_nav.html.erb (1.9ms)
+Completed 200 OK in 92ms (Views: 85.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 20:14:59 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.4ms)
+  Rendered posts/edit.html.erb within layouts/application (8.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.0ms)
+Completed 200 OK in 108ms (Views: 102.0ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 20:15:17 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RiyzsDjI88pFZ1V9MdIuCfX+SAY4FMFsff772TXqealN5mDNANhxPk7xgJm61xN3HSsFhP/xYR5qgzJ/1h3K5A==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image_cache"=>"", "remove_image"=>"0", "attachments"=>[#<ActionDispatch::Http::UploadedFile:0x00007fdd8e83a1f8 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-91319-yk3t0l.HEIC>, @original_filename="IMG_2118.HEIC", @content_type="image/heic", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"IMG_2118.HEIC\"\r\nContent-Type: image/heic\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fdd8e83a108 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-91319-ilms4k.jpg>, @original_filename="tooth.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"tooth.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/posts_controller.rb:50
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.6ms)
+  Rendered posts/edit.html.erb within layouts/application (9.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.0ms)
+Completed 200 OK in 140ms (Views: 93.0ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-17 20:15:29 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LchoUIXitnftVQsODK5Xk2yXxMRhIWZLgHBM955cnuctZunuvAAjMpfEtVJ0TuQtKAOL88s1/yjfkQ+bMInLUw==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n    I bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.  \r\n    Ideally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"1", "image_cache"=>"", "remove_image"=>"0", "attachments"=>[#<ActionDispatch::Http::UploadedFile:0x00007fdd8fe4c2e8 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190617-91319-4slyue.jpg>, @original_filename="tooth.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"tooth.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "image" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["image", nil], ["attachments", "[\"tooth.jpg\"]"], ["updated_at", "2019-06-17 19:15:29.895366"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 621ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 20:15:29 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.4ms)
+Completed 200 OK in 121ms (Views: 94.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 20:15:43 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (5.8ms)
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (22.5ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+Completed 200 OK in 113ms (Views: 99.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 20:15:48 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.3ms)
+  Rendered posts/edit.html.erb within layouts/application (11.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.7ms)
+Completed 200 OK in 101ms (Views: 95.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-17 20:16:47 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.5ms)
+  Rendered posts/edit.html.erb within layouts/application (9.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.1ms)
+Completed 200 OK in 109ms (Views: 104.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 20:16:49 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (2.9ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (11.7ms)
+  Rendered shared/_nav.html.erb (1.8ms)
+Completed 200 OK in 88ms (Views: 82.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-17 20:16:52 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.8ms)
+Completed 200 OK in 93ms (Views: 86.1ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-06-17 20:18:45 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"z7Tv/2IJ0U4/AN3kxICQriXshduVxiU/l74OOtz71hLPGm5BW+tEC0WRY7i8YCMQYXjK7D/SvFzIX01Wci6Dpg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/devise-4.6.2/lib/devise/models/rememberable.rb:62
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/devise-4.6.2/lib/devise/models/rememberable.rb:62
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-06-17 20:18:45 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.4ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (11.0ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+Completed 200 OK in 93ms (Views: 88.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 20:18:55 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (2.7ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (10.2ms)
+  Rendered shared/_nav.html.erb (2.9ms)
+Completed 200 OK in 99ms (Views: 93.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts?category=Sustainable+Home" for ::1 at 2019-06-17 20:18:56 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"category"=>"Sustainable Home"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Sustainable Home"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (2.9ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = $1 ORDER BY created_at DESC[0m  [["category_id", 1]]
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (8.9ms)
+  Rendered shared/_nav.html.erb (3.2ms)
+Completed 200 OK in 98ms (Views: 90.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/posts?category=Veggie+Garden" for ::1 at 2019-06-17 20:18:57 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"category"=>"Veggie Garden"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Veggie Garden"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (2.8ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = $1 ORDER BY created_at DESC[0m  [["category_id", 3]]
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+  Rendered shared/_nav.html.erb (2.5ms)
+Completed 200 OK in 96ms (Views: 90.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-17 20:18:58 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (6.2ms)
+  [1m[36mPost Load (4.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (22.6ms)
+  Rendered shared/_nav.html.erb (2.7ms)
+Completed 200 OK in 128ms (Views: 118.7ms | ActiveRecord: 5.4ms)
+
+

@@ -5,20 +5,34 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.4.1
 
-* System dependencies
+* Rails version: 5+		
 
-* Configuration
+* Custom GEMs:
 
-* Database creation
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'high_voltage', '~> 3.1'
+gem 'carrierwave'
+gem 'devise'
+gem 'mini_magick'
+gem 'file_validators'
 
-* Database initialization
+* Postgresql Database creation
 
-* How to run the test suite
+* Postgrsql Database initialization
 
-* Services (job queues, cache servers, search engines, etc.)
+# DEVELOPMENT RECORD
 
-* Deployment instructions
+* Image upload using CarrierWave, convert to multiple images, UseMini-Magick Gem to produce image versions to display in Blog laydown.
 
-* ...
+* TODO:
+
+	* Create Image view page.
+	* Amazon S3 file storage and upload - Carrierwave. 
+	* CSS styling for all forms.
+	* Design and create Home page. Home page at top (Display - latest 2 or 3 posts), Thumb image list below with filter list..
+	* Design and create Show Blog post page.
+
+	* Deploy on HEROKU	 ...
