@@ -31,6 +31,7 @@ gem 'file_validators'
 
 	* Create Image view page.
 	* Amazon S3 file storage and upload - Carrierwave. 
+	[Merge Branch]
 	* CSS styling for all forms.
 	* Design and create Home page. Home page at top (Display - latest 2 or 3 posts), Thumb image list below with filter list..
 	* Design and create Show Blog post page.

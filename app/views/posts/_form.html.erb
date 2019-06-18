@@ -24,18 +24,22 @@
 
 
   <div class='field'>
-    <%= image_tag(@post.image.thumb.url) if @post.image? %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-    <p>
-    <label>
-      <%= form.check_box :remove_image %>
-      Remove Image
-    </label>
-  </p>
+   
+    <% if @post.attachments? %>
+      <% @post.attachments.each do |attachment| %>
+      <li style='list-style-type: none;'> <%= image_tag(attachment.thumb.url)%></li>
+    <% end %> 
+
+    <% end %>
+
+
 
     <%= form.file_field :attachments, multiple: true %>
-    
+    <%= form.hidden_field :attachments_cache %>
+    <label>
+      <%= form.check_box :remove_attachments %>
+      Remove Attchments (this removes all photos)
+    </label>
   </div>
 
   <div class="actions">
