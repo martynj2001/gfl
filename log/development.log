@@ -5390,3 +5390,176 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 111ms (Views: 104.7ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/posts" for ::1 at 2019-06-18 21:19:07 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (4.2ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (13.0ms)
+  Rendered shared/_nav.html.erb (2.7ms)
+Completed 200 OK in 1936ms (Views: 1929.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-18 21:19:09 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.6ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (13.3ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+Completed 200 OK in 120ms (Views: 114.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/pages/about" for ::1 at 2019-06-18 21:19:12 +0100
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"about"}
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (4.4ms)
+Completed 200 OK in 108ms (Views: 105.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-18 21:19:14 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.5ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (15.2ms)
+  Rendered shared/_nav.html.erb (2.7ms)
+Completed 200 OK in 122ms (Views: 117.2ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-06-18 21:19:27 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"d9W6tY3esjagm5Bg0uWVC3Ec16Sffp5kOYlN/+BVnUXxYYSF5oiSvyt1kDJKr0bEyfj7LhLUpe7eZDfmktIP0Q=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/devise-4.6.2/lib/devise/models/rememberable.rb:62
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/devise-4.6.2/lib/devise/models/rememberable.rb:62
+Redirected to http://localhost:3000/
+Completed 302 Found in 73ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-06-18 21:19:27 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.4ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (11.5ms)
+  Rendered shared/_nav.html.erb (2.0ms)
+Completed 200 OK in 128ms (Views: 123.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-06-19 19:22:00 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (4.6ms)
+  [1m[36mPost Load (3.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  Rendered posts/index.html.erb within layouts/application (14.6ms)
+  Rendered shared/_nav.html.erb (2.2ms)
+Completed 200 OK in 469ms (Views: 460.0ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-06-19 19:22:08 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (265.8ms)
+  Rendered shared/_nav.html.erb (2.4ms)
+Completed 200 OK in 1209ms (Views: 419.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-06-19 19:22:12 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hn+INViZan/2Xw7H0jZsCWyK36z9w3PY3flNZ1Xat7lm84Af810q6cPwxhk0Or/YTdiuQ58Q7JJQ3jbVlhOaew==", "user"=>{"email"=>"martynj2010@icloud.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "martynj2010@icloud.com"], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:22
+Redirected to http://localhost:3000/
+Completed 302 Found in 364ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2019-06-19 19:22:12 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:10
+  Rendered shared/_category_src.html.erb (3.0ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (11.5ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+Completed 200 OK in 99ms (Views: 94.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/posts/4/edit" for ::1 at 2019-06-19 19:22:14 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (66.0ms)
+  Rendered posts/edit.html.erb within layouts/application (93.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (3.9ms)
+Completed 200 OK in 215ms (Views: 174.7ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/posts/4" for ::1 at 2019-06-19 19:23:09 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uzz5swGGU3IG2TCjV+KJOoGnJs2YbJpsPe1LprWB3D/lZuFnYtqgtUBiPPc0vqibBbJdTi9D4RTtO3gdohdbqQ==", "post"=>{"title"=>"Finding the Ultimate Sustainable Shave", "content"=>"On our quest to reduce plastic waste and build a more suastaibable bathroom – my shaving habits came under scrutiny. The increasing cost and disposable culture of our households is apitamised in my shaving habits; shaving gel, foam, disposable razors and replaceable (non recycleable) blade cartridges all get thrown out.  It doesn’t take much however to find more acceptable sustainable alternatives, in fact (like many things) it’s a glance backwards to previous generations to find the answers. Shaving soap, safety razors, cut-throat razors (for the more brave hearted) are all on the menu. The usual google search and Amazon trawl will deliver you a wide range of options – we have tried a few and these are my thoughts.\r\n\r\nFirst up and the simplest change is to put aside your shaving gel and foam and get a good shaving soap and brush. In fact, I lost my shaving brush one work trip about a month ago and have been surviving perfectly well without it! There is a vast range of shaving soaps out there, I have been through a few but have only focused here on thoughs that come from a sustainable range (mostly vegan in there make up) and don’t come shrink wrapped in single use plastics and packaging. The best have been ……… \r\n\r\nSwapping my Gillette Turbo v3, cartridge razor was by far the easiest thing I did. My misconstrued worries about turning up to work looking like I had lost a knife fight were way off of the mark. In fact swapping to a safety razor has been a shaving delight and, it has come with zero addition hassle! I considered three safety razors after a trawl of the internet, the simplistic Mutiney razor, the Bluebeards Revenge Cutless and the BamBau safety razor came up as my top three. In the end there were two things that helped me decide. Both the Cutless and Mutiny razor have short handles, clearly personal choice, but I wanted something more substantial. Price wise, the Mutiney razor and bambau are on a par coming in between £10 - £15, the Cutless is pricy (£34.99!). Both Bawbau and Mutiny have sustainably credentials which extends to there packaging – sadly Bluebeards revenge still seem stuck in the plastic age! In the end the BamBau stole it for me and so far its been magic.\r\n\r\nBlades – This can be tricky. In short you quickly undo your plastic free intentions by buying any old safety razor blades. Most, sadly, come in neat plastic cartridge type packets and single use plastic cellophane. They are however cheap, readily available and easy to buy in bulk. I have decided to go with ‘Shark’ as they are 100% packaged in recyclable and contain zero plastic. They are also reasonably priced at £12 for 100 and readily available from Mutiny Shaving. Disposing of the blades is genius……. Simply cut a small opening in a tin of your favourite soup, eat the contents for lunch, clean the empty tin and post your used blade through the slot, they cant’t escape (if your careful in the way you opening the tin before lunch!) so your bathroom remains child friendly– when its full (which will take years) simply throw it in the recycling. Mutiny shaving offer a £4 version of this but……….\r\n\r\nOverall, I could tell you all that making the switch to safety razors and shaving soap is all about a close shave -  for me the difference was neglible. The switch is about reducing your plastic footprint, making your bathroom more sustainable and,  its about saving you some money (It doesn’t take a rocket scientist to work out that £12 for 100 safety blade is better value than £12 for 8 Gillette Cartridges.)\r\n", "category_id"=>"1", "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"4"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.9ms)[0m  [1m[33mUPDATE "posts" SET "attachments" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["attachments", "[\"IMG_4591.jpg\",\"tooth.jpg\"]"], ["updated_at", "2019-06-19 18:23:09.557381"], ["id", 4]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (15.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 105ms (ActiveRecord: 17.9ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-06-19 19:23:09 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:73
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (327.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.9ms)
+Completed 200 OK in 428ms (Views: 420.5ms | ActiveRecord: 1.4ms)
+
+
