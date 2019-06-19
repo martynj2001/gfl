@@ -1,4 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light box">
+
+
+<div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+        <%= link_to 'All', posts_path, class: "p-2 text-muted" %>
+        <% Category.all.each do |category| %>
+            <%= link_to category.name, posts_path(category: category.name), class: "p-2 text-muted" %>
+        <% end %>
+    </nav>
+</div>
+<!--nav class="navbar navbar-expand-lg navbar-light box">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,4 +24,4 @@
             <% end %>
         </ul>
   </div>
-</nav>
+</nav-->
