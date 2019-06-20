@@ -2,7 +2,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
     <%= image_tag 'tree_logo_sm.png', class: "img-fluid"%>
     <h4 class="navbar-brand text-center brand" id="gfl_main_title">Greener Family Living </h4>
-    
+
+
+    <!-- Twitter follow Button -->
+    <a href="https://twitter.com/FamilyGreener?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-show-count="false">Follow @FamilyGreener</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!-------------------------->
+        
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -33,7 +38,5 @@
             <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link disabled'  %> |
             <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
         <% end %>
-        </p>
-        
   </div>
 </nav>
