@@ -13,6 +13,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lead %>
+    <%= form.text_area :lead %>
+  </div>
+
+  <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
@@ -24,16 +34,11 @@
 
 
   <div class='field'>
-   
     <% if @post.attachments? %>
       <% @post.attachments.each do |attachment| %>
-      <li style='list-style-type: none;'> <%= image_tag(attachment.thumb.url)%></li>
-    <% end %> 
-
+        <li style='list-style-type: none;'> <%= image_tag(attachment.thumb.url)%></li>
+      <% end %>
     <% end %>
-
-
-
     <%= form.file_field :attachments, multiple: true %>
     <%= form.hidden_field :attachments_cache %>
     <label>

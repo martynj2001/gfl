@@ -1,60 +1,72 @@
 <div class = container>
-  
+ <%= render 'shared/category_src' %>
+ <!-- Nil check required --> 
+ <% unless @posts[0].nil? %>
   <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
+  <div class="row mb-2">
+    <div class="col-lg-6 col-md-6 px-0">
       <h1 class="display-4 font-italic"><%=@posts[0].title%></h1>
-      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+      <p class="lead my-3"><%=@posts[0].lead%></p>
+      <p class="lead mb-0"><%=link_to 'Continue reading...', @posts[0], class:"text-white" %></p>
+    </div>
+    <div class="col-lg-6 col-md-6 px-0">
+      <% if @posts[0].attachments? %>
+          <%= image_tag(@posts[0].attachments[0].cover_small.url, alt: 'Image', class: 'img-fluid rounded mx-auto d-block')%>
+      <% end %>
     </div>
   </div>
- 
+  </div>
+
   <div class="row mb-2">
     <div class="col-md-6">
       <div class="card flex-md-row mb-4 box-shadow h-md-250">
         <div class="card-body d-flex flex-column align-items-start">
-          <strong class="d-inline-block mb-2 text-primary">World</strong>
+          <strong class="d-inline-block mb-2 text-primary"><%= Category.find_by(id: @posts[1].category_id).name%></strong>
           <h3 class="mb-0">
-            <a class="text-dark" href="#">Featured post</a>
+            <%=link_to @posts[1].title, @posts[1], class:"text-dark" %>
           </h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#">Continue reading</a>
+          <div class="mb-1 text-muted"><%=@posts[1].created_at.strftime("%b %y")%></div>
+          <p class="card-text mb-auto"><%=@posts[1].lead%></p>
+          <p class="lead mb-0"><%=link_to 'Continue reading...', @posts[1], class: "text-dark"%></p>
         </div>
-        <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+        <!-- <% if @posts[1].attachments?%>
+          <%= image_tag(@posts[1].attachments[0].thumb.url, alt: 'Image', class: 'card-img-right flex-auto d-none d-md-block')%>
+        <%end%>
+        <!--img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"-->
       </div>
     </div>
     <div class="col-md-6">
       <div class="card flex-md-row mb-4 box-shadow h-md-250">
         <div class="card-body d-flex flex-column align-items-start">
-          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <strong class="d-inline-block mb-2 text-success"><%= Category.find_by(id: @posts[2].category_id).name%></strong>
           <h3 class="mb-0">
-            <a class="text-dark" href="#">Post title</a>
+            <%=link_to @posts[2].title, @posts[2], class:"text-dark" %>
           </h3>
-          <div class="mb-1 text-muted">Nov 11</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#">Continue reading</a>
+          <div class="mb-1 text-muted"><%=@posts[2].created_at.strftime("%b %y")%></div>
+          <p class="card-text mb-auto"><%=@posts[2].lead%></p>
+          <p class="lead mb-0"><%=link_to 'Continue reading...', @posts[2], class: "text-dark"%></p>
         </div>
-        <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+        <!--img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"-->
       </div>
     </div>
   </div>
-  <%= render 'shared/category_src' %>
-  <table class="table">
+  <% end %>
+  <!-- Nil check required -->
+
+  <!-- Add Some sort of table coloring based on category, Catergory sort when all selected -->
+  <table class="table-sm table-responsive">
       <thead>
         <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Content</th>
-          <th colspan="3"></th>
+          <th scope="col"><h3>Posts</h3></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
 
       <tbody>
         <% @posts.each do |post| %>
           <tr>
-            <td><%= post.title %></td>
-            <td><%= post.content %></td>
+            <td><%=link_to post.title, post, class:"text-dark" %></td>
             <% if user_signed_in? %>
-              <td><%= link_to 'Show', post, class:"btn btn-lg btn-primary btn-block" %></td>
               <td><%= link_to 'Edit', edit_post_path(post), class:"btn btn-lg btn-primary btn-block" %></td>
               <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-lg btn-primary btn-block" %></td>
             <% end %>

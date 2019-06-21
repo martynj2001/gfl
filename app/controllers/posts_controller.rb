@@ -67,6 +67,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def category (category_id)
+    Category[category_id].name
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -75,6 +79,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :category_id, :image, :image_cache, :remove_image, :remove_attachments, attachments: [])
+      params.require(:post).permit(:title, :content, :category_id, :author, :remove_attachments, :lead, attachments: [])
     end
 end
