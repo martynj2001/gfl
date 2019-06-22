@@ -67,8 +67,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def category (category_id)
-    Category[category_id].name
+  # GET posts/home
+  def home
+    @posts = Post.all.order("created_at DESC")
   end
 
   private
