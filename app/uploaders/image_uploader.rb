@@ -7,8 +7,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   BLACKLIST_EXTENSIONS = %w(exe dmg)
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  if Rails.env.production?
+    storage: :fog
+  else
+    storage: :file
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -44,9 +47,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [50, 100]
   end
 
-
-  # Add a white list of extensions which are allowed to be uploaded.
-  
+  # Add a white & black lists of extensions which are allowed to be uploaded.
   def extension_whitelist
     IMAGE_EXTENSIONS
   end
@@ -64,4 +65,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
 end

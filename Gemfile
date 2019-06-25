@@ -45,6 +45,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'mini_magick'
 gem 'file_validators'
+gem 'fog'
 
 # End Custom gflBlog Gems
 
