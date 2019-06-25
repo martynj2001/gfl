@@ -9,7 +9,7 @@
 Category.create(name: 'Sustainable Home')
 Category.create(name: 'Electric Vehicles')
 Category.create(name: 'Veggie Garden')
-Category.create(name: 'Environment')
+Category.create(name: 'Product Reviews')
 Category.create(name: 'Recycle & Reuse')
 
 Post.create(title: 'Georganics Spearmint Toothpaste', content: "This come in a lovely little glass pot with a metal lid. In terms of colour and consistency it appears to look similar to clay or putty. The little wooden spatula provided is perfect for scooping out a pea sized amount of toothpaste to pop onto your toothbrush.  

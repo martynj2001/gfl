@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-6 col-md-6 px-0">
         <h4 class="lead my-3 text-center mx-auto pt-4">At Greener Family Living we aim to help you choose a more sustainable family life and help build the foundations of a more climate aware culture.</h4>
-        <p class="lead my-3 text-center mx-auto font-italic">Browse our blog to follow our greener adventures, get some tips or read out product reviews.</p>
+        <p class="lead my-3 text-center mx-auto font-italic">Browse our blog to follow our greener adventures, get some tips or read our product reviews.</p>
         <div class="row mb-2">
             <div class="col-lg-4 col-md-4 px-0">
             </div>
@@ -19,9 +19,6 @@
             </div>
         </div>
         
-    </div>
-
-      
     </div>
   </div>
 
@@ -37,7 +34,7 @@
     </div>
     <div class="col-lg-6 col-md-6 px-0">
       <% if @posts[0].attachments? %>
-          <%= image_tag(@posts[0].attachments[0].cover_small.url, alt: 'Image', class: 'img-fluid rounded mx-auto d-block')%>
+          <%= image_tag(@posts[0].attachments[0].cover_full.url, alt: 'Image', class: 'img-fluid rounded mx-auto d-block')%>
       <% end %>
     </div>
   </div>

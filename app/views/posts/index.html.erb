@@ -11,13 +11,15 @@
     </div>
     <div class="col-lg-6 col-md-6 px-0">
       <% if @posts[0].attachments? %>
-          <%= image_tag(@posts[0].attachments[0].cover_small.url, alt: 'Image', class: 'img-fluid rounded mx-auto d-block')%>
+          <%= image_tag(@posts[0].attachments[0].cover_full.url, alt: 'Image', class: 'img-fluid rounded mx-auto d-block')%>
       <% end %>
     </div>
   </div>
   </div>
-
+  <%end%>
+  
   <div class="row mb-2">
+    <% unless @posts[1].nil? %>
     <div class="col-md-6">
       <div class="card flex-md-row mb-4 box-shadow h-md-250">
         <div class="card-body d-flex flex-column align-items-start">
@@ -35,6 +37,8 @@
         <!--img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"-->
       </div>
     </div>
+    <%end%>
+    <% unless @posts[2].nil? %>
     <div class="col-md-6">
       <div class="card flex-md-row mb-4 box-shadow h-md-250">
         <div class="card-body d-flex flex-column align-items-start">
@@ -49,35 +53,31 @@
         <!--img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"-->
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
+  
   <!-- Nil check required -->
-
-  <!-- Add Some sort of table coloring based on category, Catergory sort when all selected -->
-  <table class="table-sm table-responsive">
-      <thead>
-        <tr>
-          <th scope="col"><h3>Posts</h3></th>
-          <th colspan="2"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @posts.each do |post| %>
-          <tr>
-            <td><%=link_to post.title, post, class:"text-dark" %></td>
-            <% if user_signed_in? %>
-              <td><%= link_to 'Edit', edit_post_path(post), class:"btn btn-lg btn-primary btn-block" %></td>
-              <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-lg btn-primary btn-block" %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-  </table>
-</div> 
-    
-    
+  
+  <h3>Posts</h3>
+  <% if user_signed_in?%>
+    <%= link_to 'New Post', new_post_path, class:"btn btn-lg btn-outline-success btn-block mx-auto d-block" %>
+  <% end %>
+  <div class='list-group'>
+  <% @posts.each do |post| %>
+    <div class = 'list-group-item list-group-item-action'>
+      
+        <div class='row'>
+          <div class='col-6 '>
+            <%=link_to post.title, post, class:"text-dark text-center" %>
+          </div>
+          <% if user_signed_in? %>
+            <div class='col-3'><%= link_to 'Edit', edit_post_path(post), class:"btn btn-lg btn-outline-success btn-block" %></div>
+            <div class='col-3'><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-lg btn-outline-success btn-block" %></div>
+          <%end%>
+        </div>
+      
+    </div>
+  <%end%>
+  </div>
+</div>  
 <br>
-<% if user_signed_in?%>
-  <%= link_to 'New Post', new_post_path, class:"btn btn-lg btn-primary btn-block" %>
-<% end %>

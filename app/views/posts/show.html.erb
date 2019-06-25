@@ -17,13 +17,15 @@
   </div>
   <% if @post.attachments? %>
       <% @post.attachments.each do |attachment| %>
-        <li style='list-style-type: none;'><%= link_to(image_tag(attachment.thumb.url, alt: 'Image'), attachment.url, target: '_blank') %></li>
+        <li style='list-style-type: none;' class='d-inline'><%= link_to(image_tag(attachment.thumb.url, alt: 'Image', class: 'img-fluid img-thumbnail'), attachment.url, target: '_blank') %></li>
       <% end %>
   <% end %>  
   <p><%= simple_format @post.content %></p>
+  <%= link_to 'Back', posts_path, class:"btn btn-outline-success py-1" %>
   
   <% if user_signed_in?%>
-    <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-lg btn-primary btn-block" %> |
-    <%= link_to 'Back', posts_path, class:"btn btn-lg btn-primary btn-block" %>
+    <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-outline-success d-inline py-1" %>
   <%end%>
+
+  <div class='p-3'></div>
 </div>

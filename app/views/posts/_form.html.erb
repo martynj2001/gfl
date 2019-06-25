@@ -1,53 +1,60 @@
-<%= form_with(model: post, local: true, :html => {multipart: true}) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <% post.errors.full_messages.each do |message| %>
-        <p class="alert alert-danger" style="list-style-type: none;"><%= message %></p>
+
+  <form>
+  
+    <%= form_with(model: post, local: true, :html => {multipart: true}) do |form| %>
+      <% if post.errors.any? %>
+        <div id="error_explanation">
+          <% post.errors.full_messages.each do |message| %>
+            <p class="alert alert-danger" style="list-style-type: none;"><%= message %></p>
+          <% end %>
+        </div>
       <% end %>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+      <div class='form-group'>
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control', placeholder: 'Post Title'%>
+      </div>
 
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author %>
-  </div>
+      <div class="form-group">
+        <%= form.label :author %>
+        <%= form.text_field :author, class: 'form-control', placeholder: 'Post Author' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :lead %>
-    <%= form.text_area :lead %>
-  </div>
+      <div class="form-group">
+        <%= form.label :lead %>
+        <%= form.text_area :lead, class: 'form-control', placeholder: 'Brief synopsis of post', rows: '2' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+      <div class="form-group">
+        <%= form.label :content %>
+        <%= form.text_area :content, class: 'form-control', placeholder: 'Post content', rows: '5' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.number_field :category_id %>
-  </div>
+      <div class="form-group">
+        <%= form.label :category_id %>
+        <p>1: Sustainable Living, 2: Veggie Plot, 3: ...... </p>
+        <!-- Need to change to select -->
+        <%= form.number_field :category_id, class: 'form-control'%>
+      </div>
 
 
-  <div class='field'>
-    <% if @post.attachments? %>
-      <% @post.attachments.each do |attachment| %>
-        <li style='list-style-type: none;'> <%= image_tag(attachment.thumb.url)%></li>
-      <% end %>
+      <div class='form-group'>
+        <% if @post.attachments? %>
+          <% @post.attachments.each do |attachment| %>
+            <li style='list-style-type: none;'> <%= image_tag(attachment.thumb.url, class: 'img-fluid img-thumbnail')%></li>
+          <% end %>
+        <% end %>
+        <%= form.file_field :attachments, multiple: true, class: 'form-control-file' %>
+        <%= form.hidden_field :attachments_cache %>
+        <label>
+          <%= form.check_box :remove_attachments %>
+          Remove Attchments (this removes all photos)
+        </label>
+      </div>
+
+      <div class="actions">
+        <%= form.submit class: 'btn btn-outline-success'%>
+      </div>
     <% end %>
-    <%= form.file_field :attachments, multiple: true %>
-    <%= form.hidden_field :attachments_cache %>
-    <label>
-      <%= form.check_box :remove_attachments %>
-      Remove Attchments (this removes all photos)
-    </label>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  
+  </form>
