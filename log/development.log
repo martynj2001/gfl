@@ -16093,3 +16093,657 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 107ms (Views: 101.2ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/posts" for ::1 at 2019-06-25 21:45:46 +0100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (35.4ms)
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (123.4ms)
+  Rendered shared/_nav.html.erb (3.4ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 843ms (Views: 767.6ms | ActiveRecord: 32.4ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-25 21:45:53 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (122.5ms)
+  Rendered posts/edit.html.erb within layouts/application (126.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.3ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 227ms (Views: 219.5ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-25 21:46:50 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YnrtOpNkUvKoDRhVCd9eygK79FDqGffp64yM4ESdn34lrDtq6QPU5P2VnAJ5ilwQvexFx+JwYBdnQRV5sVB0VA==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "author"=>"Chrissy", "lead"=>"A pleasant, easy alternative to toothpaste.", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n\r\nI bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.\r\nIdeally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"6", "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.8ms)[0m  [1m[33mUPDATE "posts" SET "attachments" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["attachments", "[\"tooth.jpg\"]"], ["updated_at", "2019-06-25 20:46:50.562833"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 39ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-25 21:46:50 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (55.0ms)
+  Rendered shared/_nav.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 171ms (Views: 164.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-25 21:55:52 +0100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (35.2ms)
+  Rendered shared/_nav.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 639ms (Views: 565.9ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/posts/app/assets/images/tree_logo_sm.png" for ::1 at 2019-06-25 21:55:53 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/posts/app/assets/images/tree_logo_sm.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/posts/app/assets/images/tree_logo_sm.png" for ::1 at 2019-06-25 21:55:59 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/posts/app/assets/images/tree_logo_sm.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/posts/3" for ::1 at 2019-06-25 21:56:58 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (7.3ms)
+  Rendered shared/_nav.html.erb (1.8ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 119ms (Views: 111.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/app/assets/images/tree_logo_sm.png" for ::1 at 2019-06-25 21:56:59 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/posts/app/assets/images/tree_logo_sm.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/posts/3" for ::1 at 2019-06-25 21:57:24 +0100
+Processing by PostsController#show as HTML
+Started GET "/posts/app/assets/images/tree_logo_sm.png" for ::1 at 2019-06-25 21:57:24 +0100
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (5.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (13.7ms)
+  
+ActionController::RoutingError (No route matches [GET] "/posts/app/assets/images/tree_logo_sm.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendered shared/_nav.html.erb (3.5ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 1022ms (Views: 1005.0ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-25 22:13:28 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (45.8ms)
+  Rendered posts/edit.html.erb within layouts/application (50.1ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (9.5ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 164ms (Views: 153.3ms | ActiveRecord: 3.3ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-25 22:13:40 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HuSeXVtSe5/QmQC9RtBAiT7jd3kwR5bSf3NfsfWDIbFZMkgNITX9iYUBhOo2hUJTgbTG7jguASzzvsYoAE7Kmw==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "author"=>"Chrissy", "lead"=>"A pleasant, easy alternative to toothpaste.", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n\r\nI bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.\r\nIdeally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"6", "attachments"=>[#<ActionDispatch::Http::UploadedFile:0x00007fb5f228f5a0 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190625-71785-50wbgw.jpg>, @original_filename="Save-Some-Green-Toothtabs-With-Fluoride-1.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"Save-Some-Green-Toothtabs-With-Fluoride-1.jpg\"\r\nContent-Type: image/jpeg\r\n">], "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.8ms)[0m  [1m[33mUPDATE "posts" SET "attachments" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["attachments", "[\"Save-Some-Green-Toothtabs-With-Fluoride-1.jpg\"]"], ["updated_at", "2019-06-25 21:13:42.225453"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 1439ms (ActiveRecord: 15.0ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-25 22:13:42 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (7.7ms)
+  Rendered shared/_nav.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 106ms (Views: 99.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for ::1 at 2019-06-25 22:13:50 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (5.8ms)
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (30.8ms)
+  Rendered shared/_nav.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 131ms (Views: 122.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-25 22:13:55 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (27.1ms)
+  Rendered shared/_nav.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 150ms (Views: 142.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-26 19:51:08 +0100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (33.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (79.4ms)
+  Rendered shared/_nav.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 2235ms (Views: 1997.8ms | ActiveRecord: 48.5ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2019-06-26 19:51:34 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (217.3ms)
+  Rendered posts/edit.html.erb within layouts/application (244.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.8ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 365ms (Views: 336.4ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2019-06-26 19:51:59 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EZHqvxFVFF7Yio+3P6tq9e9gD9kHVEShnFqPdV1Klx1WRzzvazKSSI0SC+BP/mgvUDe+Tg89018QlxbsqId8Nw==", "post"=>{"title"=>"Save Some Green Tooth Tabs", "author"=>"Chrissy", "lead"=>"A pleasant, easy alternative to toothpaste.", "content"=>"These are fantastic! They taste like ‘normal’ toothpaste, the metal container is plastic free and recyclable but also the company sell refills of the tablets so you can just keep it and use it forever.  \r\n\r\nI bought these thinking they would be perfect for in my wash kit for camping/travelling but my husband and I like them so much we have been using them for every day use as well. Even my 6 year old likes them.\r\nIdeally crunch them with your front teeth to make a sort of paste (I use a little bit of water as well) and then brush. Simple.", "category_id"=>"6", "attachments"=>[#<ActionDispatch::Http::UploadedFile:0x00007fc806bef0e8 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190626-78061-113x7ux.jpg>, @original_filename="Save-Some-Green-Toothtabs-With-Fluoride-1.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"Save-Some-Green-Toothtabs-With-Fluoride-1.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fc806bef098 @tempfile=#<Tempfile:/var/folders/tp/6z36nqd90kqbp6mpdq3zwsqm0000gn/T/RackMultipart20190626-78061-1k51stk.jpg>, @original_filename="tooth.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[attachments][]\"; filename=\"tooth.jpg\"\r\nContent-Type: image/jpeg\r\n">], "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.8ms)[0m  [1m[33mUPDATE "posts" SET "attachments" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["attachments", "[\"Save-Some-Green-Toothtabs-With-Fluoride-1.jpg\",\"tooth.jpg\"]"], ["updated_at", "2019-06-26 18:52:01.535712"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (28.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 1792ms (ActiveRecord: 35.7ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-26 19:52:01 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (10.9ms)
+  Rendered shared/_nav.html.erb (4.7ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 202ms (Views: 194.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2019-06-26 19:56:28 +0100
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:78:in `set_post'
+Started GET "/posts/3" for ::1 at 2019-06-26 19:56:42 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:78:in `set_post'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2779171729963002045)[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (26.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2779171729963002045)[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/rake-12.3.2/lib/rake/task.rb:273
+Started GET "/posts/3" for ::1 at 2019-06-26 20:12:36 +0100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:78:in `set_post'
+Started GET "/posts/3/edit" for ::1 at 2019-06-26 20:12:41 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:78:in `set_post'
+Started GET "/posts/3" for ::1 at 2019-06-26 20:12:42 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:78:in `set_post'
+Started GET "/posts/3/edit" for ::1 at 2019-06-26 20:12:49 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:78:in `set_post'
+Started GET "/posts" for ::1 at 2019-06-26 20:12:49 +0100
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 810ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/posts" for ::1 at 2019-06-26 20:12:51 +0100
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 275ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/" for ::1 at 2019-06-26 20:12:52 +0100
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 299ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/" for ::1 at 2019-06-26 20:12:52 +0100
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 780ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/" for ::1 at 2019-06-26 20:19:46 +0100
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/" for ::1 at 2019-06-26 20:32:42 +0100
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/" for ::1 at 2019-06-26 20:33:49 +0100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Storage::Fog):
+  
+(eval):1:in `storage'
+app/uploaders/image_uploader.rb:11:in `<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in `<top (required)>'
+app/models/post.rb:10:in `<class:Post>'
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:8:in `index'
+Started GET "/" for ::1 at 2019-06-26 20:36:20 +0100
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (66.2ms)
+  [1m[36mPost Load (2.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (147.9ms)
+  Rendered shared/_nav.html.erb (4.0ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 790ms (Views: 679.8ms | ActiveRecord: 68.1ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-06-26 20:36:27 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"i0nEz2Z9SSAaNTKDskjVaZghykxN573y/z6WKndYT49b/oBACPL0/KmgLTBU+suUd4Cfb9JXwRObb9xXF/4aGQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/devise-4.6.2/lib/devise/models/rememberable.rb:62
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/devise-4.6.2/lib/devise/models/rememberable.rb:62
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-06-26 20:36:28 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (4.0ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  Rendered posts/index.html.erb within layouts/application (18.6ms)
+  Rendered shared/_nav.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 101ms (Views: 95.7ms | ActiveRecord: 2.3ms)
+
+
