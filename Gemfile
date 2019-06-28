@@ -46,6 +46,7 @@ gem 'devise'
 gem 'mini_magick'
 gem 'file_validators'
 gem 'fog-aws'
+gem 'RedCloth'
 # End Custom gflBlog Gems
 
 group :development, :test do
