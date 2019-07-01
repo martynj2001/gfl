@@ -16876,3 +16876,578 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 161ms (Views: 120.6ms | ActiveRecord: 2.7ms)
 
 
+Started GET "/" for ::1 at 2019-07-01 20:34:56 +0100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (2.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (1413.9ms)
+  [1m[36mUser Load (41.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (68.0ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 1946ms (Views: 1740.3ms | ActiveRecord: 72.6ms)
+
+
+Started GET "/posts" for ::1 at 2019-07-01 20:35:42 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (5.0ms)
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (69.3ms)
+  Rendered shared/_nav.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 171ms (Views: 152.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 20:35:51 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (120.3ms)
+  Rendered posts/edit.html.erb within layouts/application (224.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 612ms (Views: 335.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 20:37:21 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.0ms)
+  Rendered posts/edit.html.erb within layouts/application (10.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.2ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 97ms (Views: 91.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 20:37:35 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.2ms)
+  Rendered posts/edit.html.erb within layouts/application (10.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.9ms)
+  Rendered shared/_footer.html.erb (1.6ms)
+Completed 200 OK in 111ms (Views: 104.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 20:38:24 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (8.1ms)
+  Rendered posts/edit.html.erb within layouts/application (11.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.9ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 122ms (Views: 115.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 20:38:34 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (8.1ms)
+  Rendered posts/edit.html.erb within layouts/application (11.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.7ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 103ms (Views: 96.6ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/posts/5" for ::1 at 2019-07-01 20:44:39 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9/sz7C+KmIyuqPm1xkLxzaBILZL77mE/FRVdoIxbcixu/BLxgQlp2oeiqaJFApyFpKE7EvbeuM5JwkV2AiFKQw==", "post"=>{"title"=>"Huh - We've brought an Electric Car", "author"=>"Martyn", "lead"=>"We've taken the plunge and gone full electric.", "content"=>"Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"KIA e-Niro\" :/https://www.kia.com/uk/new-cars/all-new-niro-family/#Family", "category_id"=>"2", "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (28.8ms)[0m  [1m[33mUPDATE "posts" SET "content" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["content", "Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"KIA e-Niro\" :/https://www.kia.com/uk/new-cars/all-new-niro-family/#Family"], ["attachments", "[\"e_niro.jpg\",\"niro_1.jpg\",\"niro_2.jpg\"]"], ["updated_at", "2019-07-01 19:44:39.688964"], ["id", 5]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (43.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 110ms (ActiveRecord: 75.1ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:44:39 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (39.5ms)
+  Rendered shared/_nav.html.erb (3.9ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 128ms (Views: 121.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:45:45 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (6.5ms)
+  Rendered shared/_nav.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 102ms (Views: 97.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:46:27 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (14.1ms)
+  Rendered shared/_nav.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 133ms (Views: 124.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:48:52 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (5.0ms)
+  Rendered shared/_nav.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 112ms (Views: 104.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:54:23 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (7.5ms)
+  Rendered shared/_nav.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 103ms (Views: 92.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:54:26 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (4.8ms)
+  Rendered shared/_nav.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 90ms (Views: 84.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:54:44 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (7.0ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 191ms (Views: 90.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:55:44 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (6.2ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 107ms (Views: 102.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 20:56:59 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (10.1ms)
+  Rendered posts/edit.html.erb within layouts/application (16.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.7ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 115ms (Views: 109.1ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/posts/5" for ::1 at 2019-07-01 20:58:26 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yQA30zZ5t1+ZAH0dqF5bYnXMR5wVZ9t4bk8LADSozNBV+/iBvvbNvfOqrQWFXu2Cfb2NiNH20cqzGpSo0AOoSQ==", "post"=>{"title"=>"Huh - We've brought an Electric Car", "author"=>"Martyn", "lead"=>"We've taken the plunge and gone full electric.", "content"=>"Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the [\"KIA e-Niro\" :https://www.kia.com/uk/new-cars/all-new-niro-family/#Family", "category_id"=>"2", "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (1.2ms)[0m  [1m[33mUPDATE "posts" SET "content" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["content", "Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the [\"KIA e-Niro\" :https://www.kia.com/uk/new-cars/all-new-niro-family/#Family"], ["attachments", "[\"e_niro.jpg\",\"niro_1.jpg\",\"niro_2.jpg\"]"], ["updated_at", "2019-07-01 19:58:26.486851"], ["id", 5]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 17ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:58:26 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (7.2ms)
+  Rendered shared/_nav.html.erb (3.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 101ms (Views: 93.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 20:58:55 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.7ms)
+  Rendered posts/edit.html.erb within layouts/application (10.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.6ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 96ms (Views: 90.3ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/posts/5" for ::1 at 2019-07-01 20:59:21 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/dv//YuDzezbQdQvJAwmUZ4upErh/EKRUjsy3A1X0bxhIDCvAwy3DrHrBDcJDJCxll9uXiVtSCOPbq106fy1JQ==", "post"=>{"title"=>"Huh - We've brought an Electric Car", "author"=>"Martyn", "lead"=>"We've taken the plunge and gone full electric.", "content"=>"Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"e-Niro\" : https://www.kia.com/uk/new-cars/all-new-niro-family/#Family", "category_id"=>"2", "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.8ms)[0m  [1m[33mUPDATE "posts" SET "content" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["content", "Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"e-Niro\" : https://www.kia.com/uk/new-cars/all-new-niro-family/#Family"], ["attachments", "[\"e_niro.jpg\",\"niro_1.jpg\",\"niro_2.jpg\"]"], ["updated_at", "2019-07-01 19:59:21.827552"], ["id", 5]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 15ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:59:21 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (5.7ms)
+  Rendered shared/_nav.html.erb (3.5ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 95ms (Views: 90.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 20:59:32 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.0ms)
+  Rendered posts/edit.html.erb within layouts/application (11.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (6.2ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 113ms (Views: 107.8ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/posts/5" for ::1 at 2019-07-01 20:59:39 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"19Vo5e8yMFWnfgbf4IFE9x8koRhftczogtFnNfyQC2pLLqe3Z71Kt83U1sfNgfIXF1VrDJskxlpfhPidGDtv8w==", "post"=>{"title"=>"Huh - We've brought an Electric Car", "author"=>"Martyn", "lead"=>"We've taken the plunge and gone full electric.", "content"=>"Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"eNiro\" : https://www.kia.com/uk/new-cars/all-new-niro-family/#Family", "category_id"=>"2", "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "content" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["content", "Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"eNiro\" : https://www.kia.com/uk/new-cars/all-new-niro-family/#Family"], ["attachments", "[\"e_niro.jpg\",\"niro_1.jpg\",\"niro_2.jpg\"]"], ["updated_at", "2019-07-01 19:59:39.585964"], ["id", 5]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 15ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 20:59:39 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (6.1ms)
+  Rendered shared/_nav.html.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 89ms (Views: 82.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 20:59:55 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.9ms)
+  Rendered posts/edit.html.erb within layouts/application (10.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (5.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 105ms (Views: 96.7ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/posts/5" for ::1 at 2019-07-01 21:00:34 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8g85Cg8s0TDmo3XJ8yVT0xfrM2OOhUeZwFJQCFexCRhu9PZYh6Or0owJpdHeJeUzH5r5d0oUTSsdB8+gsxptgQ==", "post"=>{"title"=>"Huh - We've brought an Electric Car", "author"=>"Martyn", "lead"=>"We've taken the plunge and gone full electric.", "content"=>"Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"eNiro\" :Niro \r\n\r\n[Niro]https://www.kia.com/uk/new-cars/all-new-niro-family/#Family", "category_id"=>"2", "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "content" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["content", "Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"eNiro\" :Niro \r\n\r\n[Niro]https://www.kia.com/uk/new-cars/all-new-niro-family/#Family"], ["attachments", "[\"e_niro.jpg\",\"niro_1.jpg\",\"niro_2.jpg\"]"], ["updated_at", "2019-07-01 20:00:34.414195"], ["id", 5]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 12ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 21:00:34 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (6.3ms)
+  Rendered shared/_nav.html.erb (3.4ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 99ms (Views: 92.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2019-07-01 21:01:02 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.8ms)
+  Rendered posts/edit.html.erb within layouts/application (11.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered shared/_nav.html.erb (7.3ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 118ms (Views: 111.1ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/posts/5" for ::1 at 2019-07-01 21:01:15 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HaOuXB7mwHN8bD9qZr5FbVawc4PcuLgjF8Adwk5e22mBWGEOlmm6kRbG73JLvvONXsG5lxgpspHKlYJqqvW/8A==", "post"=>{"title"=>"Huh - We've brought an Electric Car", "author"=>"Martyn", "lead"=>"We've taken the plunge and gone full electric.", "content"=>"Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"eNiro\":Niro \r\n\r\n[Niro]https://www.kia.com/uk/new-cars/all-new-niro-family/#Family", "category_id"=>"2", "attachments_cache"=>"", "remove_attachments"=>"0"}, "commit"=>"Update Post", "id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+Unpermitted parameter: :attachments_cache
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "content" = $1, "attachments" = $2, "updated_at" = $3 WHERE "posts"."id" = $4[0m  [["content", "Our car is nearly end of life, and so we started looking at alternatives. As you would expect another 'dirty' diesel was not on the cards.\r\n\r\nThis is the next Textile paragraph.\r\n\r\n* this is a bullet list\r\n* 2nd point.\r\n* third point.\r\n\r\nLearn more about the \"eNiro\":Niro \r\n\r\n[Niro]https://www.kia.com/uk/new-cars/all-new-niro-family/#Family"], ["attachments", "[\"e_niro.jpg\",\"niro_1.jpg\",\"niro_2.jpg\"]"], ["updated_at", "2019-07-01 20:01:15.277734"], ["id", 5]]
+  ↳ app/controllers/posts_controller.rb:50
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:50
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 12ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 21:01:15 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (5.7ms)
+  Rendered shared/_nav.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 101ms (Views: 95.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 21:01:27 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (15.1ms)
+  Rendered shared/_nav.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 474ms (Views: 464.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/posts" for ::1 at 2019-07-01 21:01:31 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (9.5ms)
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (33.3ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 125ms (Views: 115.3ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/posts" for ::1 at 2019-07-01 21:03:37 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (6.4ms)
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (25.7ms)
+  Rendered shared/_nav.html.erb (3.4ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 111ms (Views: 105.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-01 21:03:38 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/show.html.erb within layouts/application (121.6ms)
+  Rendered shared/_nav.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 235ms (Views: 228.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts" for ::1 at 2019-07-01 21:03:42 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (7.2ms)
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (2.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  Rendered posts/index.html.erb within layouts/application (46.0ms)
+  Rendered shared/_nav.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 129ms (Views: 118.9ms | ActiveRecord: 6.4ms)
+
+

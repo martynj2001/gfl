@@ -20,7 +20,7 @@
         <li style='list-style-type: none;' class='d-inline'><%= link_to(image_tag(attachment.thumb.url, alt: 'Image', class: 'img-fluid img-thumbnail'), attachment.url, target: '_blank') %></li>
       <% end %>
   <% end %>  
-  <%= RedCloth.new(@post.content).to_html %>
+  <%= simple_format(RedCloth.new(@post.content).to_html) %>
   <%= link_to 'Back', posts_path, class:"btn btn-outline-success py-1" %>
   
   <% if user_signed_in?%>
