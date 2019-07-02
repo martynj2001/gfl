@@ -17451,3 +17451,382 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 129ms (Views: 118.9ms | ActiveRecord: 6.4ms)
 
 
+Started GET "/" for ::1 at 2019-07-02 19:55:12 +0100
+  [1m[35m (64.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/martynjones/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (121.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (820.6ms)
+  Rendered shared/_nav.html.erb (5.3ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 1311ms (Views: 1069.8ms | ActiveRecord: 167.9ms)
+
+
+Started GET "/posts" for ::1 at 2019-07-02 19:55:48 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (4.7ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  Rendered posts/index.html.erb within layouts/application (50.7ms)
+  Rendered shared/_nav.html.erb (3.3ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 144ms (Views: 135.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-07-02 19:56:41 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (39.0ms)
+  Rendered shared/_nav.html.erb (3.8ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 133ms (Views: 126.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-07-02 19:57:37 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (6.2ms)
+  Rendered shared/_nav.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 90ms (Views: 85.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-07-02 19:57:47 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (6.8ms)
+  Rendered shared/_nav.html.erb (14.2ms)
+  Rendered shared/_footer.html.erb (1.0ms)
+Completed 200 OK in 123ms (Views: 114.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-07-02 20:14:49 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (5.8ms)
+  Rendered shared/_nav.html.erb (3.5ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 108ms (Views: 95.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 20:15:51 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (1.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (14.3ms)
+  Rendered shared/_nav.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 106ms (Views: 98.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 20:17:50 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (10.0ms)
+  Rendered shared/_nav.html.erb (4.0ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 98ms (Views: 93.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 20:18:56 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (11.4ms)
+  Rendered shared/_nav.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 100ms (Views: 94.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 20:19:48 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (11.0ms)
+  Rendered shared/_nav.html.erb (4.8ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 107ms (Views: 101.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 20:20:00 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (11.6ms)
+  Rendered shared/_nav.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 106ms (Views: 100.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2019-07-02 20:20:46 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (9.2ms)
+  Rendered shared/_nav.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 94ms (Views: 89.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts" for ::1 at 2019-07-02 20:20:52 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (4.9ms)
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  Rendered posts/index.html.erb within layouts/application (22.6ms)
+  Rendered shared/_nav.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 126ms (Views: 120.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/posts" for ::1 at 2019-07-02 20:21:06 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (6.9ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  Rendered posts/index.html.erb within layouts/application (19.4ms)
+  Rendered shared/_nav.html.erb (4.1ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 108ms (Views: 102.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-02 20:21:54 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (7.0ms)
+  Rendered shared/_nav.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 106ms (Views: 98.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-07-02 20:28:20 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:78
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (5.6ms)
+  Rendered shared/_nav.html.erb (3.4ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 111ms (Views: 104.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/home" for ::1 at 2019-07-02 20:28:31 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (2.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:31
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:51
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:64
+  Rendered posts/home.html.erb within layouts/application (15.1ms)
+  Rendered shared/_nav.html.erb (9.9ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 112ms (Views: 104.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/home" for ::1 at 2019-07-02 20:32:08 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (12.0ms)
+  Rendered shared/_nav.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 133ms (Views: 127.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/posts/home" for ::1 at 2019-07-02 20:34:16 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (9.9ms)
+  Rendered shared/_nav.html.erb (4.1ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 99ms (Views: 94.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/home" for ::1 at 2019-07-02 20:34:31 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (9.4ms)
+  Rendered shared/_nav.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 98ms (Views: 93.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/home" for ::1 at 2019-07-02 20:35:23 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (10.9ms)
+  Rendered shared/_nav.html.erb (3.9ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 108ms (Views: 103.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/home" for ::1 at 2019-07-02 20:35:33 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (9.1ms)
+  Rendered shared/_nav.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 121ms (Views: 116.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/home" for ::1 at 2019-07-02 20:35:59 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (10.7ms)
+  Rendered shared/_nav.html.erb (3.5ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 98ms (Views: 93.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/home" for ::1 at 2019-07-02 20:36:34 +0100
+Processing by PostsController#home as HTML
+  Rendering posts/home.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/home.html.erb:27
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:47
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/home.html.erb:60
+  Rendered posts/home.html.erb within layouts/application (9.3ms)
+  Rendered shared/_nav.html.erb (11.6ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 110ms (Views: 106.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts" for ::1 at 2019-07-02 20:37:16 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:6
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/shared/_category_src.html.erb:20
+  Rendered shared/_category_src.html.erb (4.8ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:26
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:45
+  Rendered posts/index.html.erb within layouts/application (19.6ms)
+  Rendered shared/_nav.html.erb (3.4ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 121ms (Views: 113.7ms | ActiveRecord: 2.1ms)
+
+
