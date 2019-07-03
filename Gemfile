@@ -47,6 +47,7 @@ gem 'mini_magick'
 gem 'file_validators'
 gem 'fog-aws'
 gem 'RedCloth'
+gem 'friendly_id', '~> 5.2'
 # End Custom gflBlog Gems
 
 group :development, :test do

@@ -31,9 +31,9 @@
 
       <div class="form-group">
         <%= form.label :category_id %>
-        <p>1: Sustainable Living, 2: Veggie Plot, 3: ...... </p>
+        <p>1: Sustainable Living, 2: Electric Car, 3: Veggie plot 4: Product Reviews 5: Recycle & Reuse</p>
         <!-- Need to change to select -->
-        <%= form.number_field :category_id, class: 'form-control'%>
+        <%= form.select :category_id, ['1', '2', '3', '4', '5'], class: 'form-control'%>
       </div>
 
 
