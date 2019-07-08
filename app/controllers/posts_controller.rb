@@ -73,6 +73,11 @@ class PostsController < ApplicationController
     @posts = Post.all.order("created_at DESC")
   end
 
+  # GET posts/sitemap
+  def sitemap
+    redirect_to 'http://gflblogimages.s3.amazonaws.com/sitemaps/sitemap.xml.gz'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

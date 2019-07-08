@@ -48,6 +48,7 @@ gem 'file_validators'
 gem 'fog-aws'
 gem 'RedCloth'
 gem 'friendly_id', '~> 5.2'
+gem 'sitemap_generator'
 # End Custom gflBlog Gems
 
 group :development, :test do

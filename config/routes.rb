@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     get 'home', on: :collection
   end
 
+  get '/sitemap', to: 'posts#sitemap'
+
 end
 

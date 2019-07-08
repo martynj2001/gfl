@@ -18535,3 +18535,9 @@ Processing by PostsController#home as HTML
 Completed 200 OK in 122ms (Views: 114.4ms | ActiveRecord: 1.6ms)
 
 
+  [1m[36mPost Load (90.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ config/sitemap.rb:23
+  [1m[36mPost Load (1.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ config/sitemap.rb:23
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ config/sitemap.rb:35
