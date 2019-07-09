@@ -23,6 +23,8 @@
   <%= simple_format(RedCloth.new(@post.content).to_html) %>
   <%= link_to 'Back', posts_path, class:"btn btn-outline-success py-1" %>
   
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
   <% if user_signed_in?%>
     <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-outline-success d-inline py-1" %>
   <%end%>
